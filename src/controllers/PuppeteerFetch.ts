@@ -1,28 +1,22 @@
-type T = any | unknown;
-
 import puppeteer, { Browser } from 'puppeteer';
-
-type FetchResult = {
-    menu: any[]
-    date: string
-} | undefined
 
 export class PuppeteerFetch {
 
     protected readonly url: string;
+    protected readonly headless: Headless;
+
     protected width: number = 1080;
     protected height: number = 1024;
-
     protected queryState: boolean = false;
+    protected browser: Browser;
 
-    public browser: Browser;
-
-    constructor(url) {
+    constructor(url: string, headless: Headless = 'new') {
         this.url = url;
+        this.headless = headless;
     }
 
     public async fetch(): Promise<FetchResult> {
-        this.browser = await puppeteer.launch({ headless: false/* "new" */ });
+        this.browser = await puppeteer.launch({ headless: this.headless });
         const page = await this.browser.newPage();
 
         await page.goto(this.url);
@@ -69,7 +63,7 @@ export class PuppeteerFetch {
 
             await page.waitForTimeout(250);
             await page.screenshot({ path: `images/${date?.replaceAll(' ', '_')?.replaceAll('.', '_')}_menu.png`, fullPage: true });
-            
+
             await this.browser.close();
 
             return { date, menu }

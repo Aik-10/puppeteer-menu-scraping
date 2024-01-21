@@ -15,12 +15,9 @@
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
     "sourceMap": false,
-    "baseUrl": "./src",
+    "baseUrl": "src",
     "outDir": "dist",
     "types": ["@types/node"],
-    "paths": {
-      "~/*": ["./src/*"]
-    }
   },
   "include": ["src", "jest.config.ts", "Tests"],
   "exclude": ["node_modules", "**/__tests__/*"]

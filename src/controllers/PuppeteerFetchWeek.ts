@@ -1,27 +1,12 @@
-type T = any | unknown;
 
+
+import { dayMap } from '../utils/weekDays';
 import { PuppeteerFetch } from './PuppeteerFetch';
-import puppeteer, { Browser, Page } from 'puppeteer';
-
-type FetchResult = {
-    menu: any[]
-    date: string
-} | undefined
-
-
-const dayMap = {
-    "maanantai": 1,  // Monday
-    "tiistai": 2,    // Tuesday
-    "keskiviikko": 3, // Wednesday
-    "torstai": 4,    // Thursday
-    "perjantai": 5,   // Friday
-    "lauantai": 6,    // Saturday
-    "sunnuntai": 7    // Sunday
-};
+import puppeteer, { Page } from 'puppeteer';
 
 export class PuppeteerFetchWeek extends PuppeteerFetch {
 
-    private resultData: Array<FetchResult> = [];
+    protected resultData: Array<FetchResult> = [];
 
     private async getCurrentDate(page: Page): Promise<string> {
         const textDateSelector = await page.waitForSelector('.v-label-sub-title', { timeout: 1000 });
@@ -58,13 +43,12 @@ export class PuppeteerFetchWeek extends PuppeteerFetch {
     }
 
     public async fetchWeek(): Promise<FetchResult[]> {
-        this.browser = await puppeteer.launch({ headless: false/* "new" */ });
+        this.browser = await puppeteer.launch({ headless: this.headless });
         const page = await this.browser.newPage();
 
         await page.goto(this.url);
         await page.setViewport({ width: this.width, height: this.height });
 
-        /* Traveling to manday */
         while (true) {
             const currentWeekDay = await this.getCurrentDate(page);
             const dateDiff = dayMap["maanantai"] - dayMap[currentWeekDay];
@@ -72,28 +56,27 @@ export class PuppeteerFetchWeek extends PuppeteerFetch {
             const elementPrevius = await page.waitForSelector('.v-button-date--previous', { visible: true });
             await page.waitForTimeout(800);
 
-            if ( dateDiff < -1 ) {
+            if (dateDiff < -1) {
                 elementPrevius?.click()
             } else {
                 break;
             }
         }
 
-        if (await this.getCurrentDate(page) != "maanantai" ) {
+        if (await this.getCurrentDate(page) != "maanantai") {
             await this.browser.close();
             return this.fetchWeek();
         }
 
         while (true) {
             const currentWeekDay = await this.getCurrentDate(page);
-            console.log(currentWeekDay, dayMap[currentWeekDay]);
 
             const elementNext = await page.waitForSelector('.v-button-icon-align-right', { visible: true });
             await page.waitForTimeout(800);
 
             await this.getDateMenu(page);
 
-            if (dayMap[currentWeekDay] < dayMap["lauantai"]) {
+            if (dayMap[currentWeekDay] < dayMap["sunnuntai"] - 1) {
                 elementNext?.click()
             } else {
                 break;
