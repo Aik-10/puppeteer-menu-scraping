@@ -20,6 +20,6 @@
     "typescript": "^5.4.3"
   },
   "dependencies": {
-    "puppeteer": "^22.6.0"
+    "puppeteer": "^22.9.0"
   }
 }
