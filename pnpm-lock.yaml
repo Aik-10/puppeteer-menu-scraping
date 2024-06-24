@@ -7,7 +7,7 @@ settings:
 dependencies:
   puppeteer:
     specifier: ^22.6.0
-    version: 22.6.0(typescript@5.4.3)
+    version: 22.6.0(typescript@5.5.2)
 
 devDependencies:
   '@types/node':
@@ -15,13 +15,13 @@ devDependencies:
     version: 20.11.30
   '@types/puppeteer':
     specifier: ^7.0.4
-    version: 7.0.4(typescript@5.4.3)
+    version: 7.0.4(typescript@5.5.2)
   nodemon:
     specifier: ^3.1.0
     version: 3.1.0
   typescript:
-    specifier: ^5.4.3
-    version: 5.4.3
+    specifier: ^5.5.2
+    version: 5.5.2
 
 packages:
 
@@ -85,11 +85,11 @@ packages:
     dependencies:
       undici-types: 5.26.5
 
-  /@types/puppeteer@7.0.4(typescript@5.4.3):
+  /@types/puppeteer@7.0.4(typescript@5.5.2):
     resolution: {integrity: sha512-ja78vquZc8y+GM2al07GZqWDKQskQXygCDiu0e3uO0DMRKqE0MjrFBFmTulfPYzLB6WnL7Kl2tFPy0WXSpPomg==}
     deprecated: This is a stub types definition. puppeteer provides its own type definitions, so you do not need this installed.
     dependencies:
-      puppeteer: 21.7.0(typescript@5.4.3)
+      puppeteer: 21.7.0(typescript@5.5.2)
     transitivePeerDependencies:
       - bufferutil
       - encoding
@@ -300,7 +300,7 @@ packages:
     resolution: {integrity: sha512-/Srv4dswyQNBfohGpz9o6Yb3Gz3SrUDqBH5rTuhGR7ahtlbYKnVxw2bCFMRljaA7EXHaXZ8wsHdodFvbkhKmqg==}
     dev: true
 
-  /cosmiconfig@8.3.6(typescript@5.4.3):
+  /cosmiconfig@8.3.6(typescript@5.5.2):
     resolution: {integrity: sha512-kcZ6+W5QzcJ3P1Mt+83OUv/oHFqZHIx8DuxG6eZ5RGMERoLqp4BuGjhHLYGK+Kf5XVkQvqBSmAy/nGWN3qDgEA==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -313,10 +313,10 @@ packages:
       js-yaml: 4.1.0
       parse-json: 5.2.0
       path-type: 4.0.0
-      typescript: 5.4.3
+      typescript: 5.5.2
     dev: true
 
-  /cosmiconfig@9.0.0(typescript@5.4.3):
+  /cosmiconfig@9.0.0(typescript@5.5.2):
     resolution: {integrity: sha512-itvL5h8RETACmOTFc4UfIyB2RfEHi71Ax6E/PivVxq9NseKbOWpeyHEOIbmAw1rs8Ak0VursQNww7lf7YtUwzg==}
     engines: {node: '>=14'}
     peerDependencies:
@@ -329,7 +329,7 @@ packages:
       import-fresh: 3.3.0
       js-yaml: 4.1.0
       parse-json: 5.2.0
-      typescript: 5.4.3
+      typescript: 5.5.2
     dev: false
 
   /cross-fetch@4.0.0:
@@ -818,7 +818,7 @@ packages:
       - utf-8-validate
     dev: false
 
-  /puppeteer@21.7.0(typescript@5.4.3):
+  /puppeteer@21.7.0(typescript@5.5.2):
     resolution: {integrity: sha512-Yy+UUy0b9siJezbhHO/heYUoZQUwyqDK1yOQgblTt0l97tspvDVFkcW9toBlnSvSfkDmMI3Dx9cZL6R8bDArHA==}
     engines: {node: '>=16.13.2'}
     deprecated: < 21.8.0 is no longer supported
@@ -826,7 +826,7 @@ packages:
     requiresBuild: true
     dependencies:
       '@puppeteer/browsers': 1.9.1
-      cosmiconfig: 8.3.6(typescript@5.4.3)
+      cosmiconfig: 8.3.6(typescript@5.5.2)
       puppeteer-core: 21.7.0
     transitivePeerDependencies:
       - bufferutil
@@ -836,14 +836,14 @@ packages:
       - utf-8-validate
     dev: true
 
-  /puppeteer@22.6.0(typescript@5.4.3):
+  /puppeteer@22.6.0(typescript@5.5.2):
     resolution: {integrity: sha512-TYeza4rl1YXfxqUVw/0hWUWYX5cicnf6qu5kkDV+t7QrESCjMoSNnva4ZA/MRGQ03HnB9BOFw9nxs/SKek5KDA==}
     engines: {node: '>=18'}
     hasBin: true
     requiresBuild: true
     dependencies:
       '@puppeteer/browsers': 2.2.0
-      cosmiconfig: 9.0.0(typescript@5.4.3)
+      cosmiconfig: 9.0.0(typescript@5.5.2)
       devtools-protocol: 0.0.1262051
       puppeteer-core: 22.6.0
     transitivePeerDependencies:
@@ -997,8 +997,8 @@ packages:
   /tslib@2.6.2:
     resolution: {integrity: sha512-AEYxH93jGFPn/a2iVAwW87VuUIkR1FVUKB77NwMF7nBTDkDrrT/Hpt/IrCJ0QXhW27jTBDcf5ZY7w6RiqTMw2Q==}
 
-  /typescript@5.4.3:
-    resolution: {integrity: sha512-KrPd3PKaCLr78MalgiwJnA25Nm8HAmdwN3mYUYZgG/wizIo9EainNVQI9/yDavtVFRN2h3k8uf3GLHuhDMgEHg==}
+  /typescript@5.5.2:
+    resolution: {integrity: sha512-NcRtPEOsPFFWjobJEtfihkLCZCXZt/os3zf8nTxjVH3RvTSxjrCamJpbExGvYOF+tFHc3pA65qpdwPbzjohhew==}
     engines: {node: '>=14.17'}
     hasBin: true
 
